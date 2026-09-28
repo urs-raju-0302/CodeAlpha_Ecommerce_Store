@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeAlpha Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="/">CodeAlpha Store</a>
+    <nav>
+      <button onclick="showSection('products')">Products</button>
+      <button onclick="showSection('cart')">Cart <span id="cartCount">0</span></button>
+      <button onclick="showSection('auth')" id="authButton">Login</button>
+      <button onclick="logout()" id="logoutButton" class="hidden">Logout</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section id="products" class="section">
+    <div class="hero">
+      <h1>Simple E-commerce Store</h1>
+      <p>Browse products, view details, add items to your cart and place an order.</p>
+    </div>
+    <div id="productGrid" class="grid"></div>
+  </section>
+
+  <section id="details" class="section hidden">
+    <button class="back" onclick="showSection('products')">← Back to products</button>
+    <div id="productDetails"></div>
+  </section>
+
+  <section id="cart" class="section hidden">
+    <h2>Shopping Cart</h2>
+    <div id="cartItems"></div>
+    <div id="cartSummary"></div>
+  </section>
+
+  <section id="auth" class="section hidden">
+    <div class="auth-card">
+      <div class="tabs">
+        <button onclick="toggleAuth('login')">Login</button>
+        <button onclick="toggleAuth('register')">Register</button>
+      </div>
+
+      <form id="loginForm">
+        <h2>Login</h2>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <button class="primary" type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="hidden">
+        <h2>Create Account</h2>
+        <input name="name" placeholder="Full name" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Password (6+ characters)" required>
+        <button class="primary" type="submit">Register</button>
+      </form>
+
+      <p id="authMessage"></p>
+    </div>
+  </section>
+
+  <section id="orders" class="section hidden">
+    <h2>My Orders</h2>
+    <div id="ordersList"></div>
+  </section>
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
